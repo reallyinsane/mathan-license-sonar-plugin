@@ -25,11 +25,11 @@ public final class Constants {
   public static final String CONFIG_REPORT_PATH_PROPERTY = "sonar.licenses.reportPath";
   public static final String CONFIG_REPORT_PATH_DEFAULT = "target/generated-resources/licenses.xml";
 
-  public static final String CONFIG_HIDE_COMPLIANT ="sonar.licenses.hide.compliant";
+  public static final String CONFIG_HIDE_COMPLIANT = "sonar.licenses.hide.compliant";
   public static final Boolean CONFIG_HIDE_COMPLIANT_DEFAULT = true;
-  public static final String CONFIG_HIDE_NON_COMPLIANT ="sonar.licenses.hide.non-compliant";
+  public static final String CONFIG_HIDE_NON_COMPLIANT = "sonar.licenses.hide.non-compliant";
   public static final Boolean CONFIG_HIDE_NON_COMPLIANT_DEFAULT = false;
-  public static final String CONFIG_HIDE_UNKNOWN ="sonar.licenses.hide.missing";
+  public static final String CONFIG_HIDE_UNKNOWN = "sonar.licenses.hide.missing";
   public static final Boolean CONFIG_HIDE_UNKNOWN_DEFAULT = false;
 
   public static final String CONFIG_SEVERITY_NON_COMPLIANT = "sonar.licenses.severity.non-compliant";

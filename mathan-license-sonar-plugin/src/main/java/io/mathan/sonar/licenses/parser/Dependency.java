@@ -20,7 +20,6 @@ package io.mathan.sonar.licenses.parser;
 
 import io.mathan.sonar.licenses.License;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 public class Dependency {
 

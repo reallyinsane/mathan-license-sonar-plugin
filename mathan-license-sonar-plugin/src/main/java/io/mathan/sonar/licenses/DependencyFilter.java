@@ -77,10 +77,10 @@ public class DependencyFilter {
   public Severity severity(Dependency dependency) {
     Artifact artifact = asArtifact(dependency);
     if (inclusions.include(artifact) && !exclusions.include(artifact)) {
-      if(License.UNKNOWN.equals(dependency.getLicense())) {
+      if (License.UNKNOWN.equals(dependency.getLicense())) {
         return severityMissing;
       }
-      if(nonCompliant(dependency.getLicense())) {
+      if (nonCompliant(dependency.getLicense())) {
         return severityNonCompliant;
       }
     }

@@ -99,7 +99,7 @@ public class ReportParser {
       String url = (String) xpath.compile("url/text()").evaluate(node, XPathConstants.STRING);
       License license = LicenseMapper.getLicense(name, url);
       licenses.add(license);
-      if(License.UNKNOWN.equals(license)) {
+      if (License.UNKNOWN.equals(license)) {
         LOGGER.info(String.format("Unknon license name=%s url=%s", name, url));
       }
     }
@@ -112,7 +112,6 @@ public class ReportParser {
     net.sf.saxon.Configuration configuration = xPathFactory.getConfiguration();
     return configuration.buildDocumentTree(saxSource);
   }
-
 
 
 }

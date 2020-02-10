@@ -57,10 +57,10 @@ public class LicenseMapper {
   }
 
   public static License getLicense(String name, String url) {
-    if(URL_MAP.containsKey(url)) {
+    if (URL_MAP.containsKey(url)) {
       return URL_MAP.get(url);
     }
-    if(NAME_MAP.containsKey(name)) {
+    if (NAME_MAP.containsKey(name)) {
       return NAME_MAP.get(name);
     }
     return License.UNKNOWN;

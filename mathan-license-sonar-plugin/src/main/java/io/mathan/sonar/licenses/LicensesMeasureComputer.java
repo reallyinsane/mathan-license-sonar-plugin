@@ -31,28 +31,27 @@ public class LicensesMeasureComputer implements MeasureComputer {
   public MeasureComputerDefinition define(MeasureComputerDefinitionContext defContext) {
     return defContext
         .newDefinitionBuilder()
-        .setOutputMetrics(
-            Metrics.KEY_COMPLIANT,
-            Metrics.KEY_NON_COMPLIANT,
-            Metrics.KEY_UNKNOWN)
+        .setOutputMetrics(Metrics.METRICS_KEYS.toArray(new String[Metrics.METRICS_KEYS.size()]))
         .build();
   }
 
   @Override
   public void compute(MeasureComputerContext context) {
     if (context.getComponent().getType() != Type.FILE) {
-      computeCount(context, Metrics.KEY_COMPLIANT);
-      computeCount(context, Metrics.KEY_NON_COMPLIANT);
-      computeCount(context, Metrics.KEY_UNKNOWN);
+      for (String key : Metrics.METRICS_KEYS) {
+        computeCount(context, key);
+      }
     }
   }
 
   private void computeCount(MeasureComputerContext context, String metric) {
     int count = 0;
-    for(Measure measure:context.getChildrenMeasures(metric)) {
-      count+=measure.getIntValue();
+    for (Measure measure : context.getChildrenMeasures(metric)) {
+      count += measure.getIntValue();
     }
-    context.addMeasure(metric, count);
+    if (count > 0) {
+      context.addMeasure(metric, count);
+    }
   }
 
 }
