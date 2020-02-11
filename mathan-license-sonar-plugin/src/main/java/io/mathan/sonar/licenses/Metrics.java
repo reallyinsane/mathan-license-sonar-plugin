@@ -74,7 +74,7 @@ public final class Metrics implements org.sonar.api.measures.Metrics {
         continue;
       }
       String key = KEY_LICENSE_PREFIX + license.name();
-      Metric<Integer> metric = new Metric.Builder(key, license.name(), ValueType.INT)
+      Metric<Integer> metric = new Metric.Builder(key, license.getTitle(), ValueType.INT)
           .setDescription(license.name())
           .setDirection(Metric.DIRECTION_NONE)
           .setDomain(Metrics.DOMAIN)

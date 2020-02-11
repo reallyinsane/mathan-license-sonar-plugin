@@ -18,9 +18,6 @@
 
 package io.mathan.sonar.licenses;
 
-import io.mathan.sonar.licenses.rule.MathanLanguage;
-import io.mathan.sonar.licenses.rule.MathanProfile;
-import io.mathan.sonar.licenses.rule.UsingNonCompliantLicenses;
 import java.util.Arrays;
 
 public final class Plugin implements org.sonar.api.Plugin {
@@ -30,9 +27,6 @@ public final class Plugin implements org.sonar.api.Plugin {
     context.addExtensions(Arrays.asList(
         IssueSensor.class,
         Metrics.class,
-        MathanProfile.class,
-        MathanLanguage.class,
-        UsingNonCompliantLicenses.class,
         LicensesMeasureComputer.class
         )
     );

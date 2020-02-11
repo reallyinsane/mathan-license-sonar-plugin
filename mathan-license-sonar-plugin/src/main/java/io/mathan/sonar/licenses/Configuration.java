@@ -36,8 +36,8 @@ public class Configuration {
     return Arrays.asList(
         PropertyDefinition.builder(Constants.CONFIG_REPORT_PATH_PROPERTY)
             .subCategory("Paths")
-            .name("Dependency-Updates report path")
-            .description("path to the 'dependency-updates-report.xml' file")
+            .name("Licenses report path")
+            .description("path to the 'licenses.xml' file")
             .defaultValue(Constants.CONFIG_REPORT_PATH_DEFAULT)
             .build(),
         PropertyDefinition.builder(Constants.CONFIG_SEVERITY_NON_COMPLIANT)
@@ -226,7 +226,15 @@ public class Configuration {
             .description("Flag indicating whether the number of dependencies with unknown licenses is hidden. (Change requires restart)")
             .type(PropertyType.BOOLEAN)
             .defaultValue(String.valueOf(Constants.CONFIG_HIDE_UNKNOWN_DEFAULT))
+            .build(),
+        PropertyDefinition.builder(Constants.CONFIG_HIDE_LICENSES)
+            .subCategory(Constants.SUB_CATEGORY_APPEARANCE)
+            .name("Hide entries for each used license")
+            .description("Flag indicating whether the entries for each used licenses are hidden. (Change requires restart)")
+            .type(PropertyType.BOOLEAN)
+            .defaultValue(String.valueOf(Constants.CONFIG_HIDE_LICENSES_DEFAULT))
             .build()
+
     );
   }
 }

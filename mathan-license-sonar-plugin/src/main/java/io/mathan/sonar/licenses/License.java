@@ -35,7 +35,7 @@ public enum License {
   LGPL_V2_1("LGPL 2.1", "sonar.licenses.compliant.lgpl_v2_1", "true"),
   LGPL_V3("LGPL 3.0", "sonar.licenses.compliant.lgpl_v3", "true"),
   MIT("MIT", "sonar.licenses.compliant.mit", "true"),
-  UNKNOWN(null, null, null);
+  UNKNOWN("Unknown", null, null);
 
   private final String title;
   private final String config;

@@ -31,6 +31,8 @@ public final class Constants {
   public static final Boolean CONFIG_HIDE_NON_COMPLIANT_DEFAULT = false;
   public static final String CONFIG_HIDE_UNKNOWN = "sonar.licenses.hide.missing";
   public static final Boolean CONFIG_HIDE_UNKNOWN_DEFAULT = false;
+  public static final String CONFIG_HIDE_LICENSES = "sonar.licenses.hide.single";
+  public static final Boolean CONFIG_HIDE_LICENSES_DEFAULT = true;
 
   public static final String CONFIG_SEVERITY_NON_COMPLIANT = "sonar.licenses.severity.non-compliant";
   public static final String CONFIG_SEVERITY_NON_COMPLIANT_DEFAULT = Severity.CRITICAL;
@@ -40,9 +42,6 @@ public final class Constants {
   static final String CONFIG_INCLUSIONS = "sonar.licenses.inclusions";
   static final String CONFIG_EXCLUSIONS = "sonar.licenses.exclusions";
 
-  public static final String REPOSITORY_KEY = "Licenses";
-  public static final String LANGUAGE_KEY = "mathanlicense";
-  public static final String RULE_KEY = "UsingNonCompliantLicenses";
   static final String SUB_CATEGORY_LICENSES = "Licenses";
   static final String SUB_CATEGORY_INCLUSIONS_EXCLUSIONS = "Inclusions/Exclusions";
   static final String SUB_CATEGORY_APPEARANCE = "Appearance";
