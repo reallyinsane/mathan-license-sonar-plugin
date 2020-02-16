@@ -69,13 +69,10 @@ public final class Metrics implements org.sonar.api.measures.Metrics {
     METRICS_KEYS.add(KEY_COMPLIANT);
     METRICS_KEYS.add(KEY_NON_COMPLIANT);
     METRICS_KEYS.add(KEY_UNKNOWN);
-    for (License license : License.values()) {
-      if (UNKNOWN.equals(license)) {
-        continue;
-      }
-      String key = KEY_LICENSE_PREFIX + license.name();
-      Metric<Integer> metric = new Metric.Builder(key, license.getTitle(), ValueType.INT)
-          .setDescription(license.name())
+    for (License license : License.getLicenses()) {
+      String key = KEY_LICENSE_PREFIX + license.getId();
+      Metric<Integer> metric = new Metric.Builder(key, license.getName(), ValueType.INT)
+          .setDescription(license.getDescription())
           .setDirection(Metric.DIRECTION_NONE)
           .setDomain(Metrics.DOMAIN)
           .create();
@@ -93,16 +90,12 @@ public final class Metrics implements org.sonar.api.measures.Metrics {
     COMPLIANT.setHidden(configuration.getBoolean(Constants.CONFIG_HIDE_COMPLIANT).orElse(Constants.CONFIG_HIDE_COMPLIANT_DEFAULT));
     NON_COMPLIANT.setHidden(configuration.getBoolean(Constants.CONFIG_HIDE_NON_COMPLIANT).orElse(Constants.CONFIG_HIDE_NON_COMPLIANT_DEFAULT));
     UNKNOWN.setHidden(configuration.getBoolean(Constants.CONFIG_HIDE_UNKNOWN).orElse(Constants.CONFIG_HIDE_UNKNOWN_DEFAULT));
-    for (License license : License.values()) {
-      if (License.UNKNOWN.equals(license)) {
-        continue;
+    for (License license : License.getLicenses()) {
+      boolean compliant = configuration.getBoolean(Constants.CONFIG_LICENSE_PREFIX + license.getId()).orElse(license.isCompliant());
+      if (compliant) {
+        licensesCompliant.add(license);
       } else {
-        boolean compliant = configuration.getBoolean(license.getConfig()).orElse(Boolean.valueOf(license.getDefaultValue()));
-        if (compliant) {
-          licensesCompliant.add(license);
-        } else {
-          licensesNonCompliant.add(license);
-        }
+        licensesNonCompliant.add(license);
       }
     }
   }
@@ -123,10 +116,7 @@ public final class Metrics implements org.sonar.api.measures.Metrics {
   }
 
   private static void calculateLicense(SensorContext context, InputComponent inputComponent, Analysis analysis) {
-    for (License license : License.values()) {
-      if (UNKNOWN.equals(license)) {
-        continue;
-      }
+    for (License license : License.getLicenses()) {
       int count = Math.toIntExact(analysis.getDependencies().stream().filter(dependency -> license.equals(dependency.getLicense())).count());
       if (count > 0) {
         context.<Integer>newMeasure().forMetric(LICENSES_METRICS.get(license)).on(inputComponent).withValue(count).save();
@@ -156,11 +146,10 @@ public final class Metrics implements org.sonar.api.measures.Metrics {
     metrics.add(Metrics.COMPLIANT);
     metrics.add(Metrics.NON_COMPLIANT);
     metrics.add(Metrics.UNKNOWN);
-    for (License license : License.values()) {
-      if (UNKNOWN.equals(license)) {
-        continue;
-      }
-      metrics.add(LICENSES_METRICS.get(license));
+    for (License license : License.getLicenses()) {
+      Metric<Integer> metric = LICENSES_METRICS.get(license);
+      metric.setHidden(configuration.getBoolean(Constants.CONFIG_HIDE_LICENSES).orElse(Constants.CONFIG_HIDE_LICENSES_DEFAULT));
+      metrics.add(metric);
     }
     return metrics;
   }

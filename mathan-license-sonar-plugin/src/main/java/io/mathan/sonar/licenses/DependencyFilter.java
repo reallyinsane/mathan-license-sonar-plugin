@@ -88,7 +88,7 @@ public class DependencyFilter {
   }
 
   private boolean nonCompliant(License license) {
-    Boolean compliant = Boolean.valueOf(configuration.get(license.getConfig()).orElse(license.getDefaultValue()));
+    Boolean compliant = Boolean.valueOf(configuration.get(Constants.CONFIG_LICENSE_PREFIX + license.getId()).orElse(Boolean.toString(license.isCompliant())));
     return !compliant;
   }
 

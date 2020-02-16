@@ -17,45 +17,114 @@
  */
 package io.mathan.sonar.licenses;
 
-public enum License {
-  AGPL_V3("AGPL 3.0", "sonar.licenses.compliant.agpl_v3", "false"),
-  APACHE_V2("Apache 2.0", "sonar.licenses.compliant.apache_v2", "true"),
-  BSD_2("BSD 2-Clause", "sonar.licenses.compliant.bsd_2", "true"),
-  BSD_3("BSD 3-Clause", "sonar.licenses.compliant.bsd_3", "true"),
-  CDDL_V1("CDDL 1.0", "sonar.licenses.compliant.cddl_v1", "true"),
-  EPL_V1("EPL /w Distribution 1.0", "sonar.licenses.compliant.epl_v1", "false"),
-  EPL_ONLY_V1("EPL 1.0", "sonar.licenses.compliant.epl_only_v1", "false"),
-  EPL_V2("EPL /w Secondary 2.0", "sonar.licenses.compliant.epl_v2", "false"),
-  EPL_ONLY_V2("EPL 2.0", "sonar.licenses.compliant.epl_only_v2", "false"),
-  EUPL_V1_1("EUPL 1.1", "sonar.licenses.compliant.eupl_v1_1", "false"),
-  FDL_V1_3("FDL 1.3", "sonar.licenses.compliant.fdl_v1_3", "true"),
-  GPL_V1("GPL 1.0", "sonar.licenses.compliant.gpl_v1", "false"),
-  GPL_V2("GPL 2.0", "sonar.licenses.compliant.gpl_v2", "false"),
-  GPL_V3("GPL 3.0", "sonar.licenses.compliant.gpl_v3", "false"),
-  LGPL_V2_1("LGPL 2.1", "sonar.licenses.compliant.lgpl_v2_1", "true"),
-  LGPL_V3("LGPL 3.0", "sonar.licenses.compliant.lgpl_v3", "true"),
-  MIT("MIT", "sonar.licenses.compliant.mit", "true"),
-  UNKNOWN("Unknown", null, null);
+import flexjson.JSONDeserializer;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-  private final String title;
-  private final String config;
-  private final String defaultValue;
+public class License {
 
-  private License(String title, String config, String defaultValue) {
-    this.title = title;
-    this.config = config;
-    this.defaultValue = defaultValue;
+  public static final License UNKNOWN = getUnknown();
+  private static List<License> licenses = null;
+
+  private String id;
+  private String name;
+  private String description;
+  private boolean compliant;
+  private List<String> names;
+  private List<String> urls;
+
+  public static License getLicense(String name, String url) {
+    for(License license : getLicenses()) {
+      if(license.getNames().contains(name) || license.getUrls().contains(url)) {
+        return license;
+      }
+    }
+    return UNKNOWN;
   }
 
-  public String getConfig() {
-    return config;
+  public String getName() {
+    return name;
   }
 
-  public String getDefaultValue() {
-    return defaultValue;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public String getTitle() {
-    return title;
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public boolean isCompliant() {
+    return compliant;
+  }
+
+  public void setCompliant(boolean compliant) {
+    this.compliant = compliant;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public List<String> getNames() {
+    if (names == null) {
+      names = new ArrayList<>();
+    }
+    return names;
+  }
+
+  public void setNames(List<String> names) {
+    this.names = names;
+  }
+
+  public List<String> getUrls() {
+    if (urls == null) {
+      urls = new ArrayList<>();
+    }
+    return urls;
+  }
+
+  public void setUrls(List<String> urls) {
+    this.urls = urls;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    License license = (License) o;
+    return id.equals(license.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
+
+  private static License getUnknown() {
+    License license = new License();
+    license.setId("UNKNOWN");
+    return license;
+  }
+
+  public static List<License> getLicenses() {
+    if (licenses == null) {
+      licenses = new JSONDeserializer<List<License>>().use("values", License.class).deserialize(new InputStreamReader(License.class.getResourceAsStream("/licenses.json")));
+    }
+    return licenses;
   }
 }

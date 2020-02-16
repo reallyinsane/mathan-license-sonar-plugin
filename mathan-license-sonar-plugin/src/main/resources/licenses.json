@@ -1,0 +1,123 @@
+[
+  {
+    "id" : "agpl_v3",
+    "name": "AGPL 3.0",
+    "description": "GNU Affero General Public License",
+    "compliant": false,
+    "names" : ["GNU Affero General Public License (AGPL) version 3.0"]
+  },
+  {
+    "id" : "apache_v2",
+    "name": "Apache 2.0",
+    "description": "Apache License v2",
+    "compliant": true,
+    "names": ["Apache License version 2.0", "The Apache Software License, Version 2.0", "Apache License, Version 2.0", "Apache Public License 2.0"],
+    "urls": ["https://www.apache.org/licenses/LICENSE-2.0.txt,", "http://www.apache.org/licenses/LICENSE-2.0"]
+  },
+  {
+    "id" : "bsd_2",
+    "name": "BSD 2-Clause",
+    "description": "",
+    "compliant": true,
+    "names": ["BSD 2-Clause License", "BSD", "The BSD License"]
+  },
+  {
+    "id" : "bsd_3",
+    "name": "BSD 3-Clause",
+    "description": "",
+    "compliant": true,
+    "names": ["BSD 3-Clause License"],
+    "urls": ["aaaa","aaaa"]
+  },
+  {
+    "id" : "cddl_v1",
+    "name": "CDDL 1.0",
+    "description": "Common Development and Distribution License",
+    "compliant": true,
+    "names": ["COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0"]
+  },
+  {
+    "id" : "epl_v1",
+    "name": "EPL /w Distribution 1.0",
+    "description": "",
+    "compliant": false,
+    "names": ["Eclipse Public + Distribution License - v 1.0"]
+  },
+  {
+    "id" : "epl_only_v1",
+    "name": "EPL 1.0",
+    "description": "",
+    "compliant": false,
+    "names": ["Eclipse Public License - v 1.0"]
+  },
+  {
+    "id" : "epl_v2",
+    "name": "EPL /w Secondary 2.0",
+    "description": "",
+    "compliant": false,
+    "names": ["Eclipse Public License - v 2.0 with Secondary License"]
+  },
+  {
+    "id" : "epl_only_v2",
+    "name": "EPL 2.0",
+    "description": "",
+    "compliant": false,
+    "names": ["clipse Public License - v 2.0"]
+  },
+  {
+    "id" : "eupl_v1_1",
+    "name": "EUPL 1.1",
+    "description": "",
+    "compliant": false,
+    "names": ["European Union Public License v1.1"]
+  },
+  {
+    "id" : "fdl_v1_3",
+    "name": "FDL 1.3",
+    "description": "",
+    "compliant": true,
+    "names": ["GNU Free Documentation License (FDL) version 1.3"]
+  },
+  {
+    "id" : "gpl_v1",
+    "name": "GPL 1.0",
+    "description": "",
+    "compliant": false,
+    "names": ["GNU General Public License (GPL) version 1.0"]
+  },
+  {
+    "id" : "gpl_v2",
+    "name": "GPL 2.0",
+    "description": "",
+    "compliant": false,
+    "names": ["GNU General Public License (GPL) version 2.0"]
+  },
+  {
+    "id" : "gpl_v3",
+    "name": "GPL 3.0",
+    "description": "",
+    "compliant": false,
+    "names": ["GNU General Public License (GPL) version 3.0"]
+  },
+  {
+    "id" : "lgpl_v2_1",
+    "name": "LGPL 2.1",
+    "description": "",
+    "compliant": true,
+    "names": ["GNU General Lesser Public License (LGPL) version 2.1"]
+  },
+  {
+    "id" : "lgpl_v3",
+    "name": "LGPL 3.0",
+    "description": "",
+    "compliant": true,
+    "names": ["GNU General Lesser Public License (LGPL) version 3.0"]
+  },
+  {
+    "id" : "mit",
+    "name": "MIT",
+    "description": "",
+    "compliant": true,
+    "names": ["MIT-License"]
+  }
+]

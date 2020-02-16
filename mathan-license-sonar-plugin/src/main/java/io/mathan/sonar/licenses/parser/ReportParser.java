@@ -97,7 +97,7 @@ public class ReportParser {
       node = nodes.get(i);
       String name = (String) xpath.compile("name/text()").evaluate(node, XPathConstants.STRING);
       String url = (String) xpath.compile("url/text()").evaluate(node, XPathConstants.STRING);
-      License license = LicenseMapper.getLicense(name, url);
+      License license = License.getLicense(name, url);
       licenses.add(license);
       if (License.UNKNOWN.equals(license)) {
         LOGGER.info(String.format("Unknon license name=%s url=%s", name, url));
