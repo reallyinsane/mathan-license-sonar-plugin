@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/reallyinsane/mathan-license-sonar-plugin.svg?branch=master)](https://travis-ci.org/reallyinsane/mathan-license-sonar-plugin)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bcd46487fd2c4b79b930556275eec3d4)](https://www.codacy.com/app/reallyinsane/mathan-license-sonar-plugin?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=reallyinsane/mathan-licence-sonar-plugin&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9b8454dfea424ebe98646cfc7151f02f)](https://www.codacy.com/manual/reallyinsane/mathan-license-sonar-plugin?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=reallyinsane/mathan-license-sonar-plugin&amp;utm_campaign=Badge_Grade)
 <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/license-apache2-blue.svg"></a>
 
 # License Plugin for SonarQube 7.9
