@@ -35,9 +35,9 @@ public final class Constants {
   public static final Boolean CONFIG_HIDE_LICENSES_DEFAULT = true;
 
   public static final String CONFIG_SEVERITY_NON_COMPLIANT = "sonar.licenses.severity.non-compliant";
-  public static final String CONFIG_SEVERITY_NON_COMPLIANT_DEFAULT = Severity.CRITICAL;
+  public static final String CONFIG_SEVERITY_NON_COMPLIANT_DEFAULT = Severity.BLOCKER;
   public static final String CONFIG_SEVERITY_MISSING = "sonar.licenses.severity.missing";
-  public static final String CONFIG_SEVERITY_MISSING_DEFAULT = Severity.BLOCKER;
+  public static final String CONFIG_SEVERITY_MISSING_DEFAULT = Severity.CRITICAL;
 
   public static final String CONFIG_LICENSE_PREFIX = "sonar.licenses.compliant.";
 
