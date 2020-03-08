@@ -62,7 +62,7 @@
     "name": "EPL 2.0",
     "description": "",
     "compliant": false,
-    "names": ["clipse Public License - v 2.0"]
+    "names": ["Eclipse Public License - v 2.0"]
   },
   {
     "id" : "eupl_v1_1",
