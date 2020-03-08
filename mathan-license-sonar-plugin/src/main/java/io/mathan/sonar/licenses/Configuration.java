@@ -32,7 +32,7 @@ public class Configuration {
     // do nothing
   }
 
-  static List<PropertyDefinition> getPropertyDefinitions() {
+  public static List<PropertyDefinition> getPropertyDefinitions() {
     List<PropertyDefinition> definitions = new ArrayList<>();
     definitions.add(
         PropertyDefinition.builder(Constants.CONFIG_REPORT_PATH_PROPERTY)

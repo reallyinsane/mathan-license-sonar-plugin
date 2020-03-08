@@ -41,13 +41,13 @@ public final class Constants {
 
   public static final String CONFIG_LICENSE_PREFIX = "sonar.licenses.compliant.";
 
-  static final String CONFIG_INCLUSIONS = "sonar.licenses.inclusions";
-  static final String CONFIG_EXCLUSIONS = "sonar.licenses.exclusions";
+  public static final String CONFIG_INCLUSIONS = "sonar.licenses.inclusions";
+  public static final String CONFIG_EXCLUSIONS = "sonar.licenses.exclusions";
 
-  static final String SUB_CATEGORY_LICENSES = "Licenses";
-  static final String SUB_CATEGORY_INCLUSIONS_EXCLUSIONS = "Inclusions/Exclusions";
-  static final String SUB_CATEGORY_APPEARANCE = "Appearance";
-  static final String SUB_CATEGORY_SEVERITIES = "Severities";
+  public static final String SUB_CATEGORY_LICENSES = "Licenses";
+  public static final String SUB_CATEGORY_INCLUSIONS_EXCLUSIONS = "Inclusions/Exclusions";
+  public static final String SUB_CATEGORY_APPEARANCE = "Appearance";
+  public static final String SUB_CATEGORY_SEVERITIES = "Severities";
 
   private Constants() {
   }

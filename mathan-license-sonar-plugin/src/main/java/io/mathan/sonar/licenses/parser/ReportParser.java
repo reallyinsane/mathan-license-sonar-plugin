@@ -45,7 +45,7 @@ public class ReportParser {
   private static XPath xpath;
 
   static {
-    xPathFactory = new net.sf.saxon.xpath.XPathFactoryImpl();
+    xPathFactory = new XPathFactoryImpl();
     xpath = xPathFactory.newXPath();
   }
 
@@ -106,7 +106,7 @@ public class ReportParser {
     return licenses;
   }
 
-  static TreeInfo getTree(InputStream in) throws XPathException {
+  private static TreeInfo getTree(InputStream in) throws XPathException {
     InputSource inputSource = new InputSource(in);
     SAXSource saxSource = new SAXSource(inputSource);
     net.sf.saxon.Configuration configuration = xPathFactory.getConfiguration();

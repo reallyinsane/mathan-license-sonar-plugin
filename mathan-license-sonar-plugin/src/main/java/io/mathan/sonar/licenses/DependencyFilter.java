@@ -38,7 +38,7 @@ public class DependencyFilter {
   private Severity severityMissing;
   private Configuration configuration;
 
-  static DependencyFilter create(Configuration configuration, String inclusions, String exclusions, Severity severityNonCompliant, Severity severityMissing) {
+  private static DependencyFilter create(Configuration configuration, String inclusions, String exclusions, Severity severityNonCompliant, Severity severityMissing) {
     DependencyFilter filter = new DependencyFilter();
     filter.configuration = configuration;
     filter.inclusions = getIncludeFilter(inclusions);
@@ -49,7 +49,7 @@ public class DependencyFilter {
   }
 
 
-  static DependencyFilter create(SensorContext context) {
+  public static DependencyFilter create(SensorContext context) {
     return create(
         context.config(),
         context.config().get(Constants.CONFIG_INCLUSIONS).orElse(":::::"),

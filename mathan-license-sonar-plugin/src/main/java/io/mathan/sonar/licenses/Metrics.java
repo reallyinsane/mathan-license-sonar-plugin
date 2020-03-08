@@ -33,10 +33,10 @@ public final class Metrics implements org.sonar.api.measures.Metrics {
 
   private static final String DOMAIN = "Licenses";
 
-  static final String KEY_COMPLIANT = "metrics.licenses.compliant";
-  static final String KEY_NON_COMPLIANT = "metrics.licenses.non-compliant";
-  static final String KEY_UNKNOWN = "metrics.licenses.unknown";
-  static final String KEY_LICENSE_PREFIX = "metrics.licenses.";
+  private static final String KEY_COMPLIANT = "metrics.licenses.compliant";
+  private static final String KEY_NON_COMPLIANT = "metrics.licenses.non-compliant";
+  private static final String KEY_UNKNOWN = "metrics.licenses.unknown";
+  private static final String KEY_LICENSE_PREFIX = "metrics.licenses.";
 
   private static final Metric<Integer> COMPLIANT = new Metric.Builder(Metrics.KEY_COMPLIANT, "Compliant", ValueType.INT)
       .setDescription("Dependencies with compliant licenses")
@@ -103,7 +103,7 @@ public final class Metrics implements org.sonar.api.measures.Metrics {
   /**
    * Calculates all metrics provided by this Sonar-Plugin based on the given Analysis.
    */
-  static void calculateMetricsModule(SensorContext context, Analysis analysis) {
+  public static void calculateMetricsModule(SensorContext context, Analysis analysis) {
     calculateMetrics(context, context.fileSystem().inputFile(context.fileSystem().predicates().hasRelativePath("pom.xml")), analysis);
   }
 
