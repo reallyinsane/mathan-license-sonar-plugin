@@ -4,28 +4,28 @@
 
 # License Plugin for SonarQube 7.9
 
-Integrates [license summary] from [license-maven-plugin] into SonarQube v7.9.
+Integrates [license summary][] from [license-maven-plugin][] into SonarQube v7.9.
 
 ## About license summary
 
-The [license-maven-plugin] has the goal *aggregate-download-licenses* which creates an overview about licenses of the dependencies of a Maven project. 
+The [license-maven-plugin][] has the goal *aggregate-download-licenses* which creates an overview about licenses of the dependencies of a Maven project. 
 
 
 ## Note
 
-**This SonarQube plugin does not perform analysis**, rather, it reads existing license summary (licenses.xml). Please refer to [license-maven-plugin] for relevant documentation how to generate the reports.
+**This SonarQube plugin does not perform analysis**, rather, it reads existing license summary (licenses.xml). Please refer to [license-maven-plugin][] for relevant documentation how to generate the reports.
 
 ## Metrics
 
 The plugin keeps track of the following statistics:
 
-Metric | Description 
--------|------------
-Compliant | The number of dependencies with compliant licenses. (See configuration properties for definition of compliant/non-compliant licenses) 
-Non-compliant | The number of dependencies with non-compliant licenses. (See configuration properties for definition of compliant/non-compliant licenses)  
-Unknown | The number of dependencies with unknown licenses.
-_License_ | The number of dependencies with this license. (See configuration properties for configuration enabling metrics for each license)
-Compliance rating | The rating of the usage of compliant/non-compliant licenes. (See configuration properties for definition of rating for non-compliant and unknown licenses)
+Metric            | Description                                                                                                                                                |
+------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+Compliant         | The number of dependencies with compliant licenses. (See configuration properties for definition of compliant/non-compliant licenses)                      | 
+Non-compliant     | The number of dependencies with non-compliant licenses. (See configuration properties for definition of compliant/non-compliant licenses)                  |  
+Unknown           | The number of dependencies with unknown licenses.                                                                                                          |
+*License*         | The number of dependencies with this license. (See configuration properties for configuration enabling metrics for each license)                           |
+Compliance rating | The rating of the usage of compliant/non-compliant licenes. (See configuration properties for definition of rating for non-compliant and unknown licenses) |
 
 #### Compliance rating
 
@@ -38,7 +38,7 @@ Copy the plugin (jar file) to $SONAR_INSTALL_DIR/extensions/plugins and restart 
 
 ## Plugin Configuration
 
-The [license-maven-plugin] will output a file named 'licenses.xml' when asked to output XML. The mathan-license-sonar-plugin reads an existing license summary XML report.
+The [license-maven-plugin][] will output a file named 'licenses.xml' when asked to output XML. The mathan-license-sonar-plugin reads an existing license summary XML report.
 
 There is additional configuration available which enables to override the default mapping of non-compliant/unknown licenses to SonarQube severity. It is also possible to include or exclude certain
 dependencies for the check.
@@ -61,26 +61,26 @@ This plugin offers various configuration options which are explained in the foll
 By default 3 metrics will be reported. With the following configuration metrics can be hidden. Changes to the setting in this category need a restart of
  SonarQube to take effect.
  
-Property | Default
----------|--------
-Hide compliant dependencies | true
-Hide dependencies without license | false
-Hide non-compliant dependencies | false
-Hide entries for each used license | true 
+Property                           | Default |
+-----------------------------------|---------|
+Hide compliant dependencies        | true    |
+Hide dependencies without license  | false   |
+Hide non-compliant dependencies    | false   |
+Hide entries for each used license | true    | 
 
 #### Inclusions/ Exclusions
 
 By default updates for all dependencies are reported. A whitelist filter and/or a blacklist filter can be used to include/exclude certain dependencies. These filter use the artifact pattern syntax
 described above. Some common use cases for the filter are
 
-- exclude SNAPSHOT dependencies (`:::*-SNAPSHOT`)
-- exclude dependencies with scope test (`::::test`)
-- include dependencies of own company only (e.g `com.mycompany.*`)
+-  exclude SNAPSHOT dependencies (`:::*-SNAPSHOT`)
+-  exclude dependencies with scope test (`::::test`)
+-  include dependencies of own company only (e.g `com.mycompany.*`)
 
-Property | Default
----------|--------
-sonar.licenses.inclusions | `:::::` (include all)
-sonar.licenses.exclusions | (none)
+Property                  | Default               |
+--------------------------|-----------------------|
+sonar.licenses.inclusions | `:::::` (include all) |
+sonar.licenses.exclusions | (none)                |
 
 #### Compliant Licenses
 
@@ -88,29 +88,29 @@ Within this section the license can be defined as compliant/non-compliant. It ca
 configuration is like this.
 
 ##### Compliant
-License       | Name                                                    | Compliant 
---------------|---------------------------------------------------------|----------
-Apache 2.0    | Apache License version 2.0                              | true
-BSD 2         | BSD 2-Clause License                                    | true
-BSD 3         | BSD 3-Clause License                                    | true
-CDDL 1.0      | Common development and distribution license version 1.0 | true
-FDL 1.3       | GNU Free Documentation License (FDL) version 1.3        | true
-LGPL 2.1      | GNU General Lesser Public License (LGPL) version 2.1    | true
-LGPL 3.0      | GNU General Lesser Public License (LGPL) version 3.0    | true
-MIT           | MIT-License                                             | true
+License       | Name                                                    | Compliant | 
+--------------|---------------------------------------------------------|-----------|
+Apache 2.0    | Apache License version 2.0                              | true      |
+BSD 2         | BSD 2-Clause License                                    | true      |
+BSD 3         | BSD 3-Clause License                                    | true      |
+CDDL 1.0      | Common development and distribution license version 1.0 | true      |
+FDL 1.3       | GNU Free Documentation License (FDL) version 1.3        | true      |
+LGPL 2.1      | GNU General Lesser Public License (LGPL) version 2.1    | true      |
+LGPL 3.0      | GNU General Lesser Public License (LGPL) version 3.0    | true      |
+MIT           | MIT-License                                             | true      |
 
 ##### Non-Compliant
-License       | Name                                                    | Compliant 
---------------|---------------------------------------------------------|----------
-AGPL 3.0      | GNU Affero General Public License (AGPL) version 3.0    | false
-EPL /w D. 1.0 | Eclipse Public + Distribution License - v 1.0           | false
-EPC 1.0       | Eclipse Public License - v 1.0                          | false
-EPL /w S 2.0  | Eclipse Public License - v 2.0 with Secondary License   | false
-EPL 2.0       | Eclipse Public License - v 2.0                          | false
-EUPL 1.1      | European Union Public License v1.1                      | false
-GPL 1.0       | GNU General Public License (GPL) version 1.0            | false
-GPL 2.0       | GNU General Public License (GPL) version 2.0            | false
-GPL 3.0       | GNU General Public License (GPL) version 3.0            | false
+License       | Name                                                    | Compliant |
+--------------|---------------------------------------------------------|-----------|
+AGPL 3.0      | GNU Affero General Public License (AGPL) version 3.0    | false     |
+EPL /w D. 1.0 | Eclipse Public + Distribution License - v 1.0           | false     |
+EPC 1.0       | Eclipse Public License - v 1.0                          | false     |
+EPL /w S 2.0  | Eclipse Public License - v 2.0 with Secondary License   | false     |
+EPL 2.0       | Eclipse Public License - v 2.0                          | false     |
+EUPL 1.1      | European Union Public License v1.1                      | false     |
+GPL 1.0       | GNU General Public License (GPL) version 1.0            | false     |
+GPL 2.0       | GNU General Public License (GPL) version 2.0            | false     |
+GPL 3.0       | GNU General Public License (GPL) version 3.0            | false     |
 
 #### Severities
 
